@@ -1,0 +1,201 @@
+Starting new log file Wed Apr  9 23:26:35 2025
+
+--------------------------------
+Qflow project setup
+--------------------------------
+
+Technology set to osu035 from existing qflow_vars.sh file
+Regenerating files for existing project sig_control
+Running yosys for verilog parsing and synthesis
+yosys  -s sig_control.ys
+
+/----------------------------------------------------------------------------\
+|                                                                            |
+|  yosys -- Yosys Open SYnthesis Suite                                       |
+|                                                                            |
+|  Copyright (C) 2012 - 2019  Clifford Wolf <clifford@clifford.at>           |
+|                                                                            |
+|  Permission to use, copy, modify, and/or distribute this software for any  |
+|  purpose with or without fee is hereby granted, provided that the above    |
+|  copyright notice and this permission notice appear in all copies.         |
+|                                                                            |
+|  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+|  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+|  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+|  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+|  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+|  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+|  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+|                                                                            |
+\----------------------------------------------------------------------------/
+
+Yosys 0.9 (git sha1 1979e0b)
+
+
+-- Executing script file `sig_control.ys' --
+
+1. Executing Liberty frontend.
+Imported 39 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /home/robot/opensource/vsdflow/source/sig_control.v
+Parsing Verilog input from `/home/robot/opensource/vsdflow/source/sig_control.v' to AST representation.
+Generating RTLIL representation for module `\sig_control'.
+Successfully finished Verilog frontend.
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \sig_control
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \sig_control
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 6 switch rules as full_case in process $proc$/home/robot/opensource/vsdflow/source/sig_control.v:54$5 in module sig_control.
+Marked 2 switch rules as full_case in process $proc$/home/robot/opensource/vsdflow/source/sig_control.v:44$3 in module sig_control.
+Marked 1 switch rules as full_case in process $proc$/home/robot/opensource/vsdflow/source/sig_control.v:32$2 in module sig_control.
+Marked 1 switch rules as full_case in process $proc$/home/robot/opensource/vsdflow/source/sig_control.v:24$1 in module sig_control.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_INIT pass (extract init attributes).
+
+3.2.4. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \clear in `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:44$3'.
+Found async reset \clear in `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:24$1'.
+
+3.2.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:54$5'.
+1/9: $6\next_state[2:0]
+2/9: $5\next_state[2:0]
+3/9: $4\next_state[2:0]
+4/9: $3\next_state[2:0]
+5/9: $2\next_state[2:0]
+6/9: $1\next_state[2:0]
+7/9: $1\delay_en[0:0]
+8/9: $0\next_state[2:0]
+9/9: $0\delay_en[0:0]
+Creating decoders for process `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:44$3'.
+1/1: $0\delay_count[1:0]
+Creating decoders for process `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:32$2'.
+1/4: $1\cntry[1:0]
+2/4: $1\hwy[1:0]
+3/4: $0\cntry[1:0]
+4/4: $0\hwy[1:0]
+Creating decoders for process `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:24$1'.
+1/1: $0\state[2:0]
+
+3.2.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\sig_control.\delay_en' from process `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:54$5'.
+No latch inferred for signal `\sig_control.\next_state' from process `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:54$5'.
+No latch inferred for signal `\sig_control.\hwy' from process `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:32$2'.
+No latch inferred for signal `\sig_control.\cntry' from process `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:32$2'.
+
+3.2.7. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sig_control.\delay_count' using process `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:44$3'.
+created $adff cell `$procdff$75' with positive edge clock and positive level reset.
+Creating register for signal `\sig_control.\state' using process `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:24$1'.
+created $adff cell `$procdff$76' with positive edge clock and positive level reset.
+
+3.2.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 6 empty switches in `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:54$5'.
+Removing empty process `sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:54$5'.
+Found and cleaned up 1 empty switch in `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:44$3'.
+Removing empty process `sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:44$3'.
+Found and cleaned up 1 empty switch in `\sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:32$2'.
+Removing empty process `sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:32$2'.
+Removing empty process `sig_control.$proc$/home/robot/opensource/vsdflow/source/sig_control.v:24$1'.
+Cleaned up 8 empty switches.
+
+3.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sig_control.
+<suppressed ~3 debug messages>
+
+3.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sig_control..
+
+
+LEF Read, Line 135: NOTE:  Old format VIARULE ignored.
+--------------------------------
+LEF Read, Line 136: NOTE:  Old format VIARULE ignored.
+Qflow project setup
+LEF Read, Line 140: NOTE:  Old format VIARULE ignored.
+--------------------------------
+LEF Read, Line 141: NOTE:  Old format VIARULE ignored.
+
+LEF Read, Line 151: NOTE:  Old format VIARULE ignored.
+Technology set to osu035 from existing qflow_vars.sh file
+LEF Read, Line 152: NOTE:  Old format VIARULE ignored.
+Regenerating files for existing project sig_control
+LEF Read, Line 156: NOTE:  Old format VIARULE ignored.
+Qrouter detail maze router version 1.4.59.T
+LEF Read, Line 157: NOTE:  Old format VIARULE ignored.
+Reading LEF data from file /usr/local/share/qflow/tech/osu035/osu035_stdcells.lef.
+LEF Read, Line 167: NOTE:  Old format VIARULE ignored.
+LEF file:  Defines site corner (ignored)
+LEF Read, Line 168: NOTE:  Old format VIARULE ignored.
+LEF file:  Defines site IO (ignored)
+LEF Read, Line 172: NOTE:  Old format VIARULE ignored.
+LEF file:  Defines site core (ignored)
+LEF Read, Line 173: NOTE:  Old format VIARULE ignored.
+LEF read: Processed 3179 lines.
+LEF Read: encountered 0 errors and 12 warnings total.
+Vertical route layer at non-minimum pitch 3.2.  Using smaller pitch 1.6, will route on 1-of-2 tracks for layer metal4.
+Running blif2cel to generate input files for graywolf
+blif2cel.tcl --blif /home/robot/opensource/vsdflow/synthesis/sig_control.blif  --lef  /usr/local/share/qflow/tech/osu035/osu035_stdcells.lef --cel /home/robot/opensource/vsdflow/layout/sig_control.cel
+No sig_control.cel1 file found for project. . . no partial blockages to apply to layout.
+No sig_control.cel2 file found for project. . . continuing without pin placement hints
+Running GrayWolf placement
+graywolf  sig_control
+Running getfillcell to determine cell to use for fill.
+getfillcell.tcl sig_control  /usr/local/share/qflow/tech/osu035/osu035_stdcells.lef FILL
+Using cell FILL for fill
+Running place2def to translate graywolf output to DEF format.
+place2def.tcl sig_control FILL
+Running addspacers to generate power stripes and align cell right edge
+addspacers.tcl  -stripe 5.0 150.0 PG sig_control  /usr/local/share/qflow/tech/osu035/osu035_stdcells.lef FILL
+
+--------------------------------
+Qflow project setup
+--------------------------------
+
+Technology set to osu035 from existing qflow_vars.sh file
+Regenerating files for existing project sig_control
+Running qrouter 1.4.59.T
+qrouter -noc  -s sig_control.cfg
+
+--------------------------------
+Qflow project setup
+--------------------------------
+
+Technology set to osu035 from existing qflow_vars.sh file
+Regenerating files for existing project sig_control
+Running magic 8.3.50
+magic -dnull -noconsole  migrate_sig_control.tcl
+
+Magic 8.3 revision 50 - Compiled on Wed 09 Apr 2025 12:26:55 PM PDT.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Input style lambda=0.20(p): scaleFactor=20, multiplier=1
+Contact size value ignored (using GDS generation rules).
+Contact size value ignored (using GDS generation rules).
+Contact size value ignored (using GDS generation rules).
+Contact size value ignored (using GDS generation rules).
+Contact size value ignored (using GDS generation rules).
+Contact size value ignored (using GDS generation rules).
+4 Magic internal units = 1 Lambda
+Loading "migrate_sig_control.tcl" from command line.
+Root cell box:
+width x height  (   llx,  lly  ), (   urx,  ury  )
+
+microns:    0.00 x 0.00    (  0.00,  0.00 ), (  0.00,  0.00 )
+lambda:     0.00 x 0.00    (  0.00,  0.00 ), (  0.00,  0.00 )
